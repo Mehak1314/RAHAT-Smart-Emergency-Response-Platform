@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-surface text-ink font-sans antialiased;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold leading-tight text-ink;
+  }
+
+  h1 { @apply text-2xl; }
+  h2 { @apply text-xl; }
+  h3 { @apply text-lg; }
+
+  a {
+    @apply text-emergency-600 hover:text-emergency-700 transition-colors;
+  }
+
+  button {
+    @apply cursor-pointer;
+  }
+
+  input, textarea, select {
+    @apply outline-none;
+  }
+}
+
+@layer components {
+  /* === BUTTONS === */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 font-medium rounded transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed select-none;
+  }
+
+  .btn-sm { @apply btn px-3 py-1.5 text-sm; }
+  .btn-md { @apply btn px-4 py-2.5 text-sm; }
+  .btn-lg { @apply btn px-6 py-3 text-base; }
+  .btn-xl { @apply btn px-8 py-4 text-lg; }
+
+  .btn-primary {
+    @apply btn-md bg-emergency-600 text-white hover:bg-emergency-700 active:bg-emergency-800 focus-visible:ring-emergency-500;
+  }
+
+  .btn-secondary {
+    @apply btn-md bg-white text-ink border border-border hover:border-border-strong hover:bg-surface active:bg-surface focus-visible:ring-emergency-500;
+  }
+
+  .btn-danger {
+    @apply btn-md bg-emergency-600 text-white hover:bg-emergency-700 focus-visible:ring-emergency-500;
+  }
+
+  .btn-ghost {
+    @apply btn-md text-ink hover:bg-slate-100 focus-visible:ring-emergency-500;
+  }
+
+  .btn-success {
+    @apply btn-md bg-safe-600 text-white hover:bg-safe-700 focus-visible:ring-safe-500;
+  }
+
+  /* === CARDS === */
+  .card {
+    @apply bg-white rounded-lg border border-border shadow-card p-4;
+  }
+
+  .card-lg {
+    @apply card p-6;
+  }
+
+  .card-hover {
+    @apply card transition-shadow duration-200 hover:shadow-card-md;
+  }
+
+  /* === FORM ELEMENTS === */
+  .form-label {
+    @apply block text-sm font-medium text-ink mb-1;
+  }
+
+  .form-input {
+    @apply w-full px-3 py-2.5 text-sm border border-border rounded-lg bg-white text-ink placeholder:text-muted
+           focus:outline-none focus:ring-2 focus:ring-emergency-500 focus:border-emergency-500
+           transition-colors duration-150;
+  }
+
+  .form-input-error {
+    @apply form-input border-emergency-500 focus:ring-emergency-500;
+  }
+
+  .form-select {
+    @apply form-input appearance-none cursor-pointer;
+  }
+
+  .form-error {
+    @apply text-emergency-600 text-xs mt-1;
+  }
+
+  .form-group {
+    @apply space-y-1;
+  }
+
+  /* === BADGES === */
+  .badge {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium;
+  }
+
+  .badge-red {
+    @apply badge bg-emergency-50 text-emergency-700 border border-emergency-200;
+  }
+
+  .badge-green {
+    @apply badge bg-safe-50 text-safe-700 border border-safe-100;
+  }
+
+  .badge-orange {
+    @apply badge bg-warn-50 text-warn-600 border border-warn-100;
+  }
+
+  .badge-gray {
+    @apply badge bg-slate-100 text-slate-600 border border-slate-200;
+  }
+
+  .badge-blue {
+    @apply badge bg-blue-50 text-blue-700 border border-blue-100;
+  }
+
+  /* === PAGE LAYOUT === */
+  .page-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .page-title {
+    @apply text-xl font-semibold text-ink;
+  }
+
+  .section-title {
+    @apply text-base font-semibold text-ink;
+  }
+
+  /* === DIVIDER === */
+  .divider {
+    @apply border-t border-border my-4;
+  }
+
+  /* === SOS BUTTON === */
+  .sos-button {
+    @apply fixed bottom-6 right-6 z-50 flex items-center justify-center
+           w-16 h-16 rounded-full bg-emergency-600 text-white text-sm font-bold
+           shadow-lg hover:bg-emergency-700 active:scale-95
+           focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-emergency-300
+           transition-all duration-150 animate-pulse-red;
+  }
+
+  /* === SKELETON LOADER === */
+  .skeleton {
+    @apply bg-slate-200 animate-pulse rounded;
+  }
+
+  /* === HELPLINE NUMBERS === */
+  .helpline-card {
+    @apply flex items-center gap-3 p-3 rounded-lg border border-border bg-white
+           hover:border-emergency-300 hover:bg-emergency-50 transition-colors cursor-pointer;
+  }
+
+  .helpline-number {
+    @apply text-lg font-bold text-emergency-600;
+  }
+
+  /* === STAT CARD === */
+  .stat-card {
+    @apply card flex items-center gap-4 p-5;
+  }
+
+  /* === MAP CONTAINER === */
+  .map-container {
+    @apply w-full rounded-lg overflow-hidden border border-border;
+    height: 400px;
+  }
+
+  /* === ALERT STRIP === */
+  .alert-strip {
+    @apply flex items-center gap-3 p-3 rounded-lg text-sm font-medium;
+  }
+
+  .alert-strip-red {
+    @apply alert-strip bg-emergency-50 text-emergency-800 border border-emergency-200;
+  }
+
+  .alert-strip-green {
+    @apply alert-strip bg-safe-50 text-safe-700 border border-safe-100;
+  }
+
+  .alert-strip-orange {
+    @apply alert-strip bg-warn-50 text-warn-600 border border-warn-100;
+  }
+
+  /* === AVATAR === */
+  .avatar {
+    @apply rounded-full bg-slate-200 flex items-center justify-center overflow-hidden flex-shrink-0;
+  }
+  .avatar-sm { @apply avatar w-8 h-8 text-sm; }
+  .avatar-md { @apply avatar w-10 h-10; }
+  .avatar-lg { @apply avatar w-14 h-14 text-lg; }
+  .avatar-xl { @apply avatar w-20 h-20 text-2xl; }
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+  /* Leaflet map fix */
+  .leaflet-container {
+    font-family: inherit !important;
+    z-index: 0;
+  }
+}

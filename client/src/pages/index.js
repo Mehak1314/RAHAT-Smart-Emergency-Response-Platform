@@ -1,0 +1,13 @@
+export { default as Home } from './Home';
+export { default as Login } from './Login';
+export { default as Signup } from './Signup';
+export { default as Dashboard } from './Dashboard';
+export { default as Hospitals } from './Hospitals';
+export { default as Pharmacies } from './Pharmacies';
+export { default as BloodDonation } from './BloodDonation';
+export { default as MedicalProfile } from './MedicalProfile';
+export { default as EmergencyContacts } from './EmergencyContacts';
+export { default as SOS } from './SOS';
+export { default as Profile } from './Profile';
+export { default as About } from './About';
+export { default as Admin } from './Admin';

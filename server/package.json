@@ -1,0 +1,14 @@
+{
+  "name": "rahat-server",
+  "version": "1.0.0",
+  "description": "RAHAT Emergency Assistance Platform - Backend API",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "seed": "node utils/seedData.js"
+  },
+  "keywords": ["emergency", "healthcare", "india", "sos"],
+  "author": "RAHAT Team",
+  "license": "MIT"
+}
